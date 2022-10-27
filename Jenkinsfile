@@ -15,8 +15,8 @@ node {
     stage('Deploy') {
         input message: 'Lanjutkan ke tahap Deploy?'
         checkout scm
-        sh 'docker run --rm -v /data/submission-cicd-pipeline-ariecc/sources:/src cdrx/pyinstaller-linux:python2 \'pyinstaller -F add2vals.py\''
+        sh "docker run --rm -v /data/submission-cicd-pipeline-ariecc/sources:/src cdrx/pyinstaller-linux:python2 \'pyinstaller -F add2vals.py\'"
         archiveArtifacts artifacts: 'sources/add2vals.py', followSymlinks: false
-        sh 'docker run --rm -v /data/submission-cicd-pipeline-ariecc/sources:/src cdrx/pyinstaller-linux:python2 \'rm -rf build dist\''
+        sh "docker run --rm -v /data/submission-cicd-pipeline-ariecc/sources:/src cdrx/pyinstaller-linux:python2 \'rm -rf build dist\'"
     }
 }
