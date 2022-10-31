@@ -14,7 +14,6 @@ node {
     }
     stage('Manual Approval') {
         input message: 'Lanjutkan ke tahap Deploy?'
-        sleep time: 1, unit: 'MINUTES'
     }    
     stage('Deploy') {
         checkout scm
